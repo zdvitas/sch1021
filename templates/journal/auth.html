@@ -1,0 +1,99 @@
+{% extends 'journal/main.html' %}
+{% block tasks %}
+<div class="auth_form" >
+    <form class="form-horizontal ">
+        <div class="control-group">
+        <label class="control-label" for="inputEmail">Email</label>
+        <div class="controls">
+        <input type="text" id="inputEmail" placeholder="Email">
+        </div>
+        </div>
+        <div class="control-group">
+        <label class="control-label" for="inputPassword">Пароль</label>
+        <div class="controls">
+        <input type="password" id="inputPassword" placeholder="Пароль">
+        </div>
+        </div>
+        <div class="control-group">
+        <div class="controls">
+
+        <button  class="btn" id="id_login">Войти</button>
+        <button  class = "btn btn-success" id="#ask"  type="button" data-toggle="modal" data-target="#modalAuth">Регистрация </button>
+        </div>
+
+        </div>
+     </form>
+
+
+</div>
+
+
+
+    <div id="modalAuth" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel">Регистрация</h3>
+  </div>
+  <div class="modal-body">
+  	<form action="." method="post"> {% csrf_token %}
+         <div id="auth_err" style="display: none; color: red"> Ошибка авторизации </div>
+         <div id="email_err" style="display: none; color: red"> Поле обязательно для заполнения </div>
+ 		<div class = "row-fluid" id="id_email_div" >
+            <div class = "span4"> <h3> Em@il </h3> </div>
+    		<div class = "span7 form_text" >
+            <input id="id_email" type="email" name="email">
+            </div>
+
+    	</div>
+
+        <div id="user_err" style="display: none; color: red"> Поле обязательно для заполнения </div>
+ 		<div class = "row-fluid">
+            <div class = "span4"> <h3> Логин </h3> </div>
+    		<div class = "span7 form_text" >
+            <input id="id_username" type="text" name="username_input">
+            </div>
+        </div>
+
+         <div id="fio_err" style="display: none; color: red"> Поле обязательно для заполнения </div>
+ 		<div class = "row-fluid">
+            <div class = "span4"> <h3> Ф.И.О.</h3> </div>
+    		<div class = "span7 form_text" >
+            <input id="id_fio" type="text" name="fio_input">
+        </div>
+
+    	</div>
+        <div id="password_err" style="display: none; color: red"> Поле обязательно для заполнения </div>
+  		<div class = "row-fluid">
+            <div class = "span4"> <h3> Пароль </h3> </div>
+    		<div class = "span7 form_text" >
+            <input id="id_password" type="password" name="password">
+            </div>
+
+    	</div>
+
+         <div id="password_err" style="display: none; color: red"> Поле обязательно для заполнения </div>
+  		<div class = "row-fluid">
+            <div class = "span4"> <h3> Пароль ещё раз </h3> </div>
+    		<div class = "span7 form_text" >
+            <input id="id_password2" type="password" name="password">
+            </div>
+
+    	</div>
+
+        <div id="fio_err" style="display: none; color: red"> Поле обязательно для заполнения </div>
+ 		<div class = "row-fluid">
+            <div class = "span4"> <h3> Секретное слово</h3> </div>
+    		<div class = "span7 form_text" >
+            <input id="id_secret" type="text" name="secret_input">
+        </div>
+
+  <div class="modal-footer">
+    <button class="btn btn-success" id="id_register" >Зарегестрироваться</button>
+
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Отмена</button>
+
+  </div>
+</form>
+</div>
+</div>
+{% endblock %}
