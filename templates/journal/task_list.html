@@ -1,4 +1,73 @@
 {% extends 'journal/main.html' %}
 {% block tasks %}
 
+	<div class="row-fluid">
+		<div class="span2"></div>
+		<div class="span8">
+
+		<div class="navbar" style="margin-top: 30px;">
+ 			<div class="navbar-inner">
+    			<a class="brand" href="#">Главная</a>
+    			<ul class="nav">
+      				<li class="active"><a href="#">Все заявки</a></li>
+      				<li><a href="#">Мои заявки</a></li>
+
+
+    			</ul>
+                <a  href="/logout/" class="btn btn-danger" style="float: right; margin-left: 10px;" data-toggle="modal" role="button" >Выйти</a>
+    			<button class="btn btn-primary" style="float: right;" data-toggle="modal" role="button" type="button">Оставить заявку</button>
+
+  			</div>
+		</div>
+
+			<table class="table table-striped">
+ 				<tr>
+ 					<td>
+ 						Имя
+ 					</td>
+ 					<td>Номер кабинета</td>
+ 					<td>Текст заявки</td>
+ 					<td>Дата</td>
+ 					<td>Статус</td>
+ 				</tr>
+                {% for task in tasks %}
+ 				 <tr class="{{ task.status_class }}">
+ 					<td>{{ task.user }}</td>
+ 					<td>{{ task.user.cabinet }}</td>
+ 					<td>{{ task.tittle }}</td>
+ 					<td>{{ task.pub_date }}</td>
+ 					<td>{{ task.status_tittle }}</td>
+ 				</tr>
+                {% endfor %}
+
+			</table>
+
+		</div>
+
+		<div class="span2"></div>
+	</div>
+
+
+	<div id="myModal" class="modal hide fade " tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+ 		<div class="modal-header">
+   			 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    		<h3 id="myModalLabel">Оставить заявку</h3>
+  		</div>
+ 		 <div class="modal-body">
+   			 <form id="form_task">
+   			 	<label>Заголовок</label>
+   				<input type="text" style="width: 99%;" placeholder="Загловок">
+
+   			 	<label>Текст заявки</label>
+   				<textarea rows="6" style="width: 99%; "> </textarea>
+   			 </form>
+
+  		</div>
+  		<div class="modal-footer">
+  			<button class="btn" data-dismiss="modal" aria-hidden="true">Отмена</button>
+    		<button class="btn btn-success">Отправить</button>
+ 		 </div>
+	</div>
+
+
 {% endblock %}

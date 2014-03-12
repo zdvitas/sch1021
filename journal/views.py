@@ -36,17 +36,22 @@ def valid_reg(data):
         response['email_err'] = 'not'
     return response
 
+def logout(request):
+    auth.logout(request)
+    return redirect("/")
 
 
 class TaskList(ListView):
 
     model = models.Task
     template_name = "task_list.html"
+    context_object_name = "tasks"
 
-    # Do something for anonymous users.
+
     def get_context_data(self, **kwargs):
         context = super(TaskList, self).get_context_data(**kwargs)
         context["form"] = "test"
+        return context
 
 def get_ajax_login(request):
     ans = {}
