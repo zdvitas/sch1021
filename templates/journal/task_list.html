@@ -15,7 +15,7 @@
 
     			</ul>
                 <a  href="/logout/" class="btn btn-danger" style="float: right; margin-left: 10px;" data-toggle="modal" role="button" >Выйти</a>
-    			<button class="btn btn-primary" style="float: right;" data-toggle="modal" role="button" type="button">Оставить заявку</button>
+    			<button class="btn btn-primary" style="float: right;" data-target="#myModal" data-toggle="modal" type="button">Оставить заявку</button>
 
   			</div>
 		</div>
@@ -48,25 +48,29 @@
 	</div>
 
 
-	<div id="myModal" class="modal hide fade " tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
  		<div class="modal-header">
    			 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
     		<h3 id="myModalLabel">Оставить заявку</h3>
   		</div>
+         <form id="form_task" action="/add_task/" method="post">
  		 <div class="modal-body">
-   			 <form id="form_task">
+        {% csrf_token %}
    			 	<label>Заголовок</label>
-   				<input type="text" style="width: 99%;" placeholder="Загловок">
+             {{ form.tittle }}
+{#   				<input id="id_tittle" type="text" style="width: 99%;" placeholder="Заголовок">#}
 
    			 	<label>Текст заявки</label>
-   				<textarea rows="6" style="width: 99%; "> </textarea>
-   			 </form>
+             {{ form.body }}
+{#   				<textarea id="id_body" rows="6" style="width: 99%; "> </textarea>#}
+
 
   		</div>
   		<div class="modal-footer">
   			<button class="btn" data-dismiss="modal" aria-hidden="true">Отмена</button>
-    		<button class="btn btn-success">Отправить</button>
+    		<button id="clickme" class="btn btn-success" type="submit" >Отправить</button>
  		 </div>
+    </form>
 	</div>
 
 

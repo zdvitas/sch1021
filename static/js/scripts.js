@@ -5,34 +5,16 @@
         $('#click_me').click(function(e){
             e.preventDefault()
             clear_quest_form()
-            $.post('/ajax/test/', {'tittle': $('#id_tittle').val(), 'body' : $('#id_body').val()}, function(data){
-                    data = $.parseJSON(data);
-
-                    if(data['result'] == 'ok') {
-                        //alert('Its OK!')
+            $.post('/ajax/add_task/', {'tittle': $('#id_tittle').val(), 'body' : $('#id_body').val() , 'csrfmiddlewaretoken' :$('#csrfmiddlewaretoken').val() }, function(){
                         $('#myModal').modal('hide')
                         location.reload()
-                    } else {
-
-                        if( data['errors']['tittle'] == 'err') {
-                            document.getElementById('tittle_err').style.display = 'block'
-                        }
-                        if( data['errors']['body'] == 'err') {
-                            document.getElementById('body_err').style.display = 'block'
-                        }
-
-
-                    }
-
-
                 });
 
         });
     })
 
     function clear_quest_form() {
-        document.getElementById('tittle_err').style.display = 'none'
-        document.getElementById('body_err').style.display = 'none'
+
     }
 
     $('#myModal').on('show', function () {

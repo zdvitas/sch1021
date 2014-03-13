@@ -1,23 +1,23 @@
 {% extends 'journal/main.html' %}
 {% block tasks %}
 <div class="auth_form" >
-    <form class="form-horizontal ">
+    <form action="/login/" class="form-horizontal" method="post">{% csrf_token %}
         <div class="control-group">
-        <label class="control-label" for="inputEmail">Email</label>
+        <label class="control-label" for="inputEmail">Email/Логин</label>
         <div class="controls">
-        <input type="text" id="inputEmail" placeholder="Email">
+        <input type="text" id="Email" placeholder="Email">
         </div>
         </div>
         <div class="control-group">
         <label class="control-label" for="inputPassword">Пароль</label>
         <div class="controls">
-        <input type="password" id="inputPassword" placeholder="Пароль">
+        <input type="password" id="Password" placeholder="Пароль">
         </div>
         </div>
         <div class="control-group">
         <div class="controls">
 
-        <button  class="btn" id="id_login">Войти</button>
+        <button  class="btn" id="btn_login" type="submit">Войти</button>
         <button  class = "btn btn-success" id="#ask"  type="button" data-toggle="modal" data-target="#modalAuth">Регистрация </button>
         </div>
 
