@@ -8,5 +8,5 @@ class add_task_form(forms.Form):
 
 class form_login(forms.Form):
     login = forms.CharField(max_length=200)
-    password = forms.CharField(max_length=200)
+    password = forms.PasswordInput()
 

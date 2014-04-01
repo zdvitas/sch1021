@@ -33,7 +33,7 @@ body{
 
 .modal
 {
-	width: 700px;
+width: 500px;
 left: 0;
 right: 0;
 margin: 0 auto;
@@ -42,6 +42,11 @@ margin: 0 auto;
 textarea{
 	width: 100%;
 
+}
+
+.control-label
+{
+    text-align: center; !important
 }
 
 
@@ -60,112 +65,16 @@ textarea{
 
 
 }
-.quest {
-	margin-top: 10px;
-	margin-left: 5px;
-	margin-bottom: 10px;
-	margin-right: 20px;
-	border-radius: 10px;
-	border: solid 2px #C4C4C4;
-}
 
-.ask_div
-{
-	margin-top: 2px;
-	float: right;
-  /*	margin-left: 0px !important ; */
-	/*border-bottom: solid 1px #ddd ;*/
-}
+
 .nav-tabs {
 	margin: 0px;
 
-
-}
-.btn-ask {
-
-	margin-top: 5px;
-	margin-left: 20px;
-	position: absolute;
-	top: 0;
-	right: 0;
-}
-
-.logout
-{
-	margin-top: 15px;
-	float: right;
-}
-.counter-main
-{
-	margin-left: 10px;
-	margin-top: 15px;
-	margin-bottom: 5px;
-	height: 35px;
-	width: 80px;
-
-	border: solid 1px black;
-	border-radius: 5px;
-}
-.counter-thumbs
-{
-	height: 35px;
-	width: 20px;
-	margin: 0px;
-	float : right;
-
-
-	border-left: solid 1px black;
-}
-.count{
-	margin-top: 7px;
-	font-size: 20px;
-	width: 59px;
-	display:  block;
-	text-align: center;
-	float: left;
-
-
-
-
-}
-.icon-thumbs-down
-{
-	position: relative;
-	bottom: 5px;
 
 }
 
 a{
 	text-decoration: underline;
 }
-.foot_buttons
-{
-	font-size: 20px;
-	text-align: center;
-
-	margin-bottom: 20px;
-}
-
-.answer
-{
-	margin-left: 80px;
-	margin-top: 10px;
-	 background-color: #F3F2F5;
-	margin-bottom: 10px;
-	margin-right: 20px;
-	border-radius: 10px;
-	border: solid 2px #C4C4C4;
-	padding: 20px;
-
-}
-
-.quest h5
-{
-    margin-left: 10px;
-}
 
 
-.quest p
-{
-    margin-left: 20px;
-}

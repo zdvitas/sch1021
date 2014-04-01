@@ -31,12 +31,26 @@
  					<td>Статус</td>
  				</tr>
                 {% for task in tasks %}
- 				 <tr class="{{ task.status_class }}">
+                 {% if task.status %}
+ 				 <tr class="success">
+                 {% else %}
+                 <tr class="info">
+                 {% endif %}
  					<td>{{ task.user }}</td>
- 					<td>{{ task.user.cabinet }}</td>
- 					<td>{{ task.tittle }}</td>
+ 					<td>{{ task.cabinet }}</td>
+ 					<td>{{ task.body }}</td>
  					<td>{{ task.pub_date }}</td>
- 					<td>{{ task.status_tittle }}</td>
+                    {% if task.status %}
+ 					<td>Выполнено</td>
+                    {% else %}
+                    <td>В процессе</td>
+                    {% endif %}
+                    {% if user.is_staff %}
+                        <td>
+                            <a>  Yep!</a>
+                        </td>
+                    {% endif %}
+
  				</tr>
                 {% endfor %}
 
@@ -56,9 +70,9 @@
          <form id="form_task" action="/add_task/" method="post">
  		 <div class="modal-body">
         {% csrf_token %}
-   			 	<label>Заголовок</label>
-             {{ form.tittle }}
-{#   				<input id="id_tittle" type="text" style="width: 99%;" placeholder="Заголовок">#}
+   			 	<label>Номер кабинета</label>
+
+   				<input id="id_tittle" name="id_tittle" type="text" style="width: 99%;" placeholder="Заголовок" value="{{ cabinet }}">
 
    			 	<label>Текст заявки</label>
              {{ form.body }}
